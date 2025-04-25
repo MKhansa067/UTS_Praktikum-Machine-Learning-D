@@ -84,8 +84,8 @@ plt.title('Distribusi Pembelian Komputer berdasarkan Rating Kredit')
 plt.show()  
 
 Dari ke-5 atribut tersebut, terdapat label berwarna dengan penjelasan sebagai berikut:  
-- Warna biru atau 1 artinya YA.  
-- Warna oranye atau 0 artinya TIDAK.  
+- Warna biru atau 0 artinya YA.  
+- Warna oranye atau 1 artinya TIDAK.  
 
 # 5. Preprocessing: Encoding Variabel Kategorikal
 Karena data berupa teks dan bukan berupa numerik, kita bisa mengubahnya menjadi variabel kategorikal dengan menggunakan LabelEncoder seperti pada kode berikut:  
