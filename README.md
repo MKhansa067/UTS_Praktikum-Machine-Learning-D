@@ -170,7 +170,7 @@ plt.show()
 Setelah model dibuat, bisa dengan menambahkan kode berikut sebagai data baru yang akan di tes. Agar data baru tersimpan dan terbaca oleh model, sama seperti langkah encoding sebelumnya, bahwa untuk data baru juga memerlukan LabelEncoder, bisa dibilang dengan cara mengubah data baru menjadi DataFrame dan melakukan encoding dengan encoder yang sudah disimpan. Berikut adalah langkah-langkahnya.  
 
 a. Data baru  
-# %%
+#%%
 new_data = {
     'Age': 'Paruh Baya',
     'Income': 'Sedang',
