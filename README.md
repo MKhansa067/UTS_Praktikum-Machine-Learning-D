@@ -4,7 +4,7 @@ NIM   : 1247050115
 Kelas : D  
 
 # Klasifikasi Kelayakan Beli Komputer  
-1. Penjelasan Dataset
+1. Penjelasan Dataset  
 Dataset ini berisi sejumlah data dengan atribut:
 - Age (Usia)
 - Income (Pendapatan)
