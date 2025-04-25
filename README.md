@@ -10,9 +10,17 @@ Dataset ini berisi sejumlah data dengan atribut:
  - Income (Pendapatan)
  - Student (Mahasiswa)
  - Credit_Rating (Rating Kredit)
- - Buys_Computer (Label/Target)
-Adapun cara untuk dapat melihat dataset tersebut dengan menggunakan langkah-langkah berikut ini:
-1. Buatlah satu buah project baru dan lakukan load library berikut ini:
+ - Buys_Computer (Label/Target)  
+
+# 1. Library yang digunakan  
+Sebelum dimulai, adapun Library yang akan digunakan/di install dalam pembuatan model klasiikasi ini, yang diantaranya:  
+- pandas
+- numpy
+- matplotlib
+- seaborn
+- scikit-learn
+
+Buatlah satu buah project baru dan lakukan load library seperti berikut ini:  
 #%%  
 import pandas as pd  
 import numpy as np  
@@ -24,7 +32,8 @@ from sklearn.metrics import classification_report, confusion_matrix
 from sklearn import tree  
 from sklearn.preprocessing import LabelEncoder
 
-3. Kemudian lakukan load dan liat data:
+# 2. Load Data  
+Kemudian lakukan load dan lihat data yang sesuai dengan dataset yang ada, seperti berikut ini:  
 #%%  
 data = pd.read_csv('dataset_buys_comp.csv')
 #%%  
@@ -34,3 +43,34 @@ print("\nInformasi dataset:")
 print(data.info())  
 print("\nStatistik deskriptif:")  
 print(data.describe(include='all').T)  
+
+# 3. Visualisasi Data  
+Selanjutnya lakukan visualisasi datadari tiap atribut seperti berikut ini:  
+#%%  
+#visualisasi data  
+plt.figure(figsize=(12, 6))  
+sns.countplot(x='Buys_Computer', data=data)  
+plt.title('Distribusi Kelas Target (Buys_Computer)')  
+plt.show()  
+#Age  
+plt.figure(figsize=(12, 6))  
+sns.countplot(x='Age', hue='Buys_Computer', data=data)  
+plt.title('Distribusi Pembelian Komputer berdasarkan Usia')  
+plt.show()  
+#Income  
+plt.figure(figsize=(12, 6))  
+sns.countplot(x='Income', hue='Buys_Computer', data=data)  
+plt.title('Distribusi Pembelian Komputer berdasarkan Pendapatan')  
+plt.show()  
+#Student  
+plt.figure(figsize=(12, 6))  
+sns.countplot(x='Student', hue='Buys_Computer', data=data)  
+plt.title('Distribusi Pembelian Komputer berdasarkan Status Mahasiswa')  
+plt.show()  
+#Credit_Rating  
+plt.figure(figsize=(12, 6))  
+sns.countplot(x='Credit_Rating', hue='Buys_Computer', data=data)  
+plt.title('Distribusi Pembelian Komputer berdasarkan Rating Kredit')  
+plt.show()  
+
+5. Preprocessing: Encoding Variabel Kategorikal
