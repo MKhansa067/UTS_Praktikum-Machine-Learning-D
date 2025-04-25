@@ -9,7 +9,7 @@ from sklearn import tree
 from sklearn.preprocessing import LabelEncoder
 
 #%%
-data = pd.read_csv('credit.csv')
+data = pd.read_csv('dataset_buys_comp.csv')
 
 #%%
 # info dataset
