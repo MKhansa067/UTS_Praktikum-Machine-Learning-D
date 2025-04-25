@@ -23,7 +23,8 @@ from sklearn.tree import DecisionTreeClassifier
 from sklearn.metrics import classification_report, confusion_matrix  
 from sklearn import tree  
 from sklearn.preprocessing import LabelEncoder
-2. Kemudian lakukan load dan liat data:
+
+3. Kemudian lakukan load dan liat data:
 #%%  
 data = pd.read_csv('dataset_buys_comp.csv')
 #%%  
