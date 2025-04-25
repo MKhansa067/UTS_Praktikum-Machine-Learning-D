@@ -105,7 +105,7 @@ for col in categorical_cols:
 # 6. Split Data (Training dan Testing)  
 Kita dapat melakukan pembagian data dengan tujuan menggunakan data training yang dipergunakan untuk membuat model. Pembagian data yang digunakan yaitu 70% untuk data training dan 30% untuk data testing. Berikut adalah langkahnya:  
 
-a. Memisahkan fitur dan targer.  
+a. Memisahkan fitur dan target  
 #%%  
 #memisahkan fitur dan target
 X = data.drop('Buys_Computer', axis=1)
