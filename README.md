@@ -1,6 +1,6 @@
 # UTS_Praktikum-Machine-Learning-D
 Nama  : Muhamad Khansa Khalifaturohman  
-NIM   : 1247050115  
+NIM    : 1247050115  
 Kelas : D  
 
 # Klasifikasi Kelayakan Beli Komputer  
