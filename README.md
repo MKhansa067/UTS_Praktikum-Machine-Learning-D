@@ -45,33 +45,47 @@ print("\nStatistik deskriptif:")
 print(data.describe(include='all').T)  
 
 # 3. Visualisasi Data  
-Selanjutnya lakukan visualisasi datadari tiap atribut seperti berikut ini:  
+Selanjutnya lakukan visualisasi data dari tiap atribut seperti berikut ini:  
+
+a. Atribut Buys_Computer sebagai kelas target  
 #%%  
 #visualisasi data  
 plt.figure(figsize=(12, 6))  
 sns.countplot(x='Buys_Computer', data=data)  
 plt.title('Distribusi Kelas Target (Buys_Computer)')  
-plt.show()  
+plt.show() 
+
+b. Atribut Age  
 #Age  
 plt.figure(figsize=(12, 6))  
 sns.countplot(x='Age', hue='Buys_Computer', data=data)  
 plt.title('Distribusi Pembelian Komputer berdasarkan Usia')  
 plt.show()  
+
+c. Atribut Income  
 #Income  
 plt.figure(figsize=(12, 6))  
 sns.countplot(x='Income', hue='Buys_Computer', data=data)  
 plt.title('Distribusi Pembelian Komputer berdasarkan Pendapatan')  
 plt.show()  
+
+d. Atribut Student  
 #Student  
 plt.figure(figsize=(12, 6))  
 sns.countplot(x='Student', hue='Buys_Computer', data=data)  
 plt.title('Distribusi Pembelian Komputer berdasarkan Status Mahasiswa')  
 plt.show()  
+
+e. Atribut Credit_Rating  
 #Credit_Rating  
 plt.figure(figsize=(12, 6))  
 sns.countplot(x='Credit_Rating', hue='Buys_Computer', data=data)  
 plt.title('Distribusi Pembelian Komputer berdasarkan Rating Kredit')  
 plt.show()  
+
+Dari ke-5 atribut tersebut, terdapat label berwarna dengan penjelasan sebagai berikut:  
+- Warna biru atau 1 artinya YA.  
+- Warna oranye atau 0 artinya TIDAK.  
 
 # 5. Preprocessing: Encoding Variabel Kategorikal
 Karena data berupa teks dan bukan berupa numerik, kita bisa mengubahnya menjadi variabel kategorikal dengan menggunakan LabelEncoder seperti pada kode berikut:  
