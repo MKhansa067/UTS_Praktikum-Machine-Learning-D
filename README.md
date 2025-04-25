@@ -91,7 +91,7 @@ Dari ke-5 atribut tersebut, terdapat label berwarna dengan penjelasan sebagai be
 - Warna oranye atau 1 artinya TIDAK.  
 
 # 5. Preprocessing: Encoding Variabel Kategorikal
-Karena data berupa teks dan bukan berupa numerik, kita bisa mengubahnya menjadi variabel kategorikal dengan menggunakan LabelEncoder seperti pada kode berikut:  
+Karena data berupa teks dan bukan berupa numerik, kita bisa mengubahnya menjadi variabel kategorikal yang dapat terbaca oleh model dengan menggunakan LabelEncoder. Berikut adalah kodenya:   
 
 #%%  
 #encoding variabel kategorikal  
@@ -133,3 +133,60 @@ b. Model untuk Prediksi
 y_pred = model.predict(X_test)  
 print("\nData testing:")  
 print(X_test.head())  
+
+# 8. Classification Report  
+Digunakan untuk menampilkan nilai akurasi, precision, recall, dan F1-score. Berikut adalah kodenya.  
+
+#%%  
+#evaluasi model  
+print("\nClassification Report:")  
+print(classification_report(y_test, y_pred))  
+
+# 9. Confusion Matrix  
+Digunakan untuk melihat hasil perbandingan prediksi benar dan salah. Berikut adalah kodenya.  
+
+#%%  
+#Confusion Matrix  
+cm = confusion_matrix(y_test, y_pred)  
+fig, ax = plt.subplots(figsize=(7,7))  
+sns.set(font_scale=1.4)  
+sns.heatmap(cm, ax=ax, annot=True, annot_kws={"size": 16}, fmt='g')  
+plt.xlabel('Predictions', fontsize=18)  
+plt.ylabel('Actuals', fontsize=18)  
+plt.title('Confusion Matrix', fontsize=18)  
+plt.show()  
+
+# 10. Visualisasi Decision Tree  
+Berikut adalah kode untuk menampilkan model Decision Tree yang sebelumnya telah dibuat.  
+
+#%%  
+#visualisasi Decision Tree  
+features = X.columns  
+fig, ax = plt.subplots(figsize=(25,20))  
+tree.plot_tree(model, feature_names=features, class_names=['Tidak', 'Ya'], filled=True)  
+plt.show()  
+
+# 11. Uji Data Baru  
+Setelah model dibuat, bisa dengan menambahkan kode berikut sebagai data baru yang akan di tes. Agar data baru tersimpan dan terbaca oleh model, sama seperti langkah encoding sebelumnya, bahwa untuk data baru juga memerlukan LabelEncoder, bisa dibilang dengan cara mengubah data baru menjadi DataFrame dan melakukan encoding dengan encoder yang sudah disimpan. Berikut adalah langkah-langkahnya.  
+
+a. Data baru  
+# %%
+new_data = {
+    'Age': 'Paruh Baya',
+    'Income': 'Sedang',
+    'Student': 'Tidak',
+    'Credit_Rating': 'Baik'
+}
+
+b. Encoding Data Baru  
+#%%
+#ubah data baru ke DataFrame
+new_data_df = pd.DataFrame([new_data])
+for col in categorical_cols:
+    new_data_df[col] = encoders[col].transform(new_data_df[col])
+
+c. Prediksi Data Baru  
+#%%
+#memprediksi
+prediction = model.predict(new_data_df)  
+print("\nPrediksi untuk data baru:", "Ya" if prediction[0] == 1 else "Tidak")  
