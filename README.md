@@ -5,6 +5,7 @@ Kelas : D
 
 # Klasifikasi Kelayakan Beli Komputer  
 Data yang digunakan dalam membuat model dengan Decision Tree disini yakni data yang diambil dari data Dataset Buys Comp, selengkapnya informasi data dapat dilihat pada file dataset_buys_comp.csv.  
+
 Dataset ini berisi sejumlah data dengan atribut:
  - Age (Usia)
  - Income (Pendapatan)
@@ -21,6 +22,7 @@ Sebelum dimulai, adapun Library yang akan digunakan/di install dalam pembuatan m
 - scikit-learn
 
 Buatlah satu buah project baru dan lakukan load library seperti berikut ini:  
+
 #%%  
 import pandas as pd  
 import numpy as np  
@@ -34,6 +36,7 @@ from sklearn.preprocessing import LabelEncoder
 
 # 2. Load Data  
 Kemudian lakukan load dan lihat data yang sesuai dengan dataset yang ada, seperti berikut ini:  
+
 #%%  
 data = pd.read_csv('dataset_buys_comp.csv')
 #%%  
@@ -89,6 +92,7 @@ Dari ke-5 atribut tersebut, terdapat label berwarna dengan penjelasan sebagai be
 
 # 5. Preprocessing: Encoding Variabel Kategorikal
 Karena data berupa teks dan bukan berupa numerik, kita bisa mengubahnya menjadi variabel kategorikal dengan menggunakan LabelEncoder seperti pada kode berikut:  
+
 #%%  
 #encoding variabel kategorikal  
 categorical_cols = ['Age', 'Income', 'Student', 'Credit_Rating']  
@@ -97,3 +101,19 @@ for col in categorical_cols:
     le = LabelEncoder()  
     data[col] = le.fit_transform(data[col])  
     encoders[col] = le  # Simpan encoder per kolom  
+
+# 6. Split Data (Training dan Testing)  
+Kita dapat melakukan pembagian data dengan tujuan menggunakan data training yang dipergunakan untuk membuat model. Pembagian data yang digunakan yaitu 70% untuk data training dan 30% untuk data testing. Berikut adalah langkahnya:  
+
+a. Memisahkan fitur dan targer.  
+#%%  
+#memisahkan fitur dan target
+X = data.drop('Buys_Computer', axis=1)
+y = data['Buys_Computer']
+
+b. Membagi data menjadi training dan testing test  
+#%%
+#membagi data menjadi training dan testing set
+X_train, X_test, y_train, y_test = train_test_split(X, y, test_size=0.3, random_state=42)
+print("\nJumlah data training:", len(X_train))
+print("Jumlah data testing:", len(X_test))
