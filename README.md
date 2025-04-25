@@ -117,3 +117,19 @@ b. Membagi data menjadi training dan testing test
 X_train, X_test, y_train, y_test = train_test_split(X, y, test_size=0.3, random_state=42)
 print("\nJumlah data training:", len(X_train))
 print("Jumlah data testing:", len(X_test))
+
+# 7. Model Klasifikasi (Decision Tree)  
+Model Decision Tree digunakan sebagai model klasifikasi, dibangun menggunakan kriteria entropy. Untuk langkahnya adalah sebagai berikut:  
+
+a. Membuat model Decision Tree  
+#%%  
+#membuat dan melatih model Decision Tree  
+model = DecisionTreeClassifier(criterion='entropy', max_depth=3, random_state=42)  
+model.fit(X_train, y_train)  
+
+b. Model untuk Prediksi  
+#%%  
+#memprediksi data testing  
+y_pred = model.predict(X_test)  
+print("\nData testing:")  
+print(X_test.head())  
