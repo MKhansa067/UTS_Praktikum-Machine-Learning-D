@@ -73,4 +73,13 @@ sns.countplot(x='Credit_Rating', hue='Buys_Computer', data=data)
 plt.title('Distribusi Pembelian Komputer berdasarkan Rating Kredit')  
 plt.show()  
 
-5. Preprocessing: Encoding Variabel Kategorikal
+# 5. Preprocessing: Encoding Variabel Kategorikal
+Karena data berupa teks dan bukan berupa numerik, kita bisa mengubahnya menjadi variabel kategorikal dengan menggunakan LabelEncoder seperti pada kode berikut:  
+#%%  
+#encoding variabel kategorikal  
+categorical_cols = ['Age', 'Income', 'Student', 'Credit_Rating']  
+encoders = {}  
+for col in categorical_cols:  
+    le = LabelEncoder()  
+    data[col] = le.fit_transform(data[col])  
+    encoders[col] = le  # Simpan encoder per kolom  
